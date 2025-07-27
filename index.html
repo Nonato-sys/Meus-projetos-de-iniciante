@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Site</title>
+  <meta name="description" content="Site pessoal de Nonato Silva, programação, contato e redes sociais.">
+  <meta name="author" content="Nonato Silva">
+  <title>Nonato Silva | Programação, Contato e Redes Sociais</title>
   <link rel="stylesheet" href="estilo.css">
+  <!-- Adicionando Font Awesome para os ícones sociais -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Adicionei as meta tags para redes sociais -->
+  <meta property="og:title" content="Nonato Silva | Programação, Contato e Redes Sociais">
+  <meta property="og:description" content="Site pessoal de Nonato Silva, programação, contato e redes sociais.">
+  <meta property="og:image" content="URL_DA_IMAGEM_DO_SITE">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="URL_DO_SEU_SITE">
 </head>
 <body>
   <header>
@@ -13,17 +23,44 @@
       <a href="index.html">Início</a>
       <a href="contato.html">Contato</a>
     </nav>
+    <button id="toggle-dark" aria-label="Alternar modo escuro">🌙</button>
   </header>
 
   <main>
-    <h2>Sobre mim</h2>
-    <p>"Olá, bem-vindo! Este sou eu. Estou com um propósito de aprender programação e estou muito focado no meu objetivo."</p>
-    <img src="imagens/minhafoto600.png" alt="Minha imagem" class="foto">
-    <h2>Voce pode acessar minhas redes aqui em <a href="https://www.instagram.com/nz.mdm7/" target="_blank" rel="external">meu instagram</a></h2>
+    <section>
+      <h2>Sobre mim</h2>
+      <p>Olá, bem-vindo! Meu nome é Nonato Silva. Estou aprendendo programação e estou muito focado no meu objetivo.</p>
+      <img src="imagens/minhafoto600.png" alt="Foto de Nonato Silva" class="foto">
+    </section>
+    <section>
+      <h2>Minhas redes sociais</h2>
+      <p>
+        Você pode acessar minhas redes pelo 
+        <a href="https://www.instagram.com/nz.mdm7/" target="_blank" rel="noopener noreferrer">Instagram</a>.
+      </p>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 - Nonato Silva</p>
+    <div class="icones-sociais">
+      <a href="https://www.instagram.com/nz.mdm7/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/seuusuario" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/seunumerowhatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
   </footer>
+  <script>
+  const btn = document.getElementById('toggle-dark');
+  // Aplica o modo escuro se já estiver salvo
+  if (localStorage.getItem('modo-escuro') === 'true') {
+    document.body.classList.add('dark-mode');
+    btn.textContent = '☀️';
+  }
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    localStorage.setItem('modo-escuro', document.body.classList.contains('dark-mode'));
+  });
+</script>
 </body>
 </html>

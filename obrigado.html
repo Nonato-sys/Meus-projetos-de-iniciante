@@ -5,23 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Obrigado!</title>
   <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
   <header>
-    <h1>Mensagem enviada!</h1>
+    <h1><i class="fas fa-check-circle" style="color:#6a7414"></i> Mensagem enviada!</h1>
     <nav>
       <a href="index.html">Início</a>
       <a href="contato.html">Voltar</a>
     </nav>
+    <button id="toggle-dark" aria-label="Alternar modo escuro" style="margin-top:10px;">🌙</button>
   </header>
 
   <main>
-    <h2>Obrigado pelo contato, Nonato!</h2>
-    <p>Assim que possível, eu responderei sua mensagem.</p>
+    <h2>Obrigado pelo contato!</h2>
+    <p>Recebi sua mensagem e em breve responderei. Fique à vontade para navegar pelo site ou me seguir nas redes sociais abaixo.</p>
+    <a href="index.html" class="btn-voltar">Voltar para o início</a>
   </main>
 
   <footer>
     <p>&copy; 2025 - Nonato Silva</p>
+    <div class="icones-sociais">
+      <a href="https://www.instagram.com/nz.mdm7/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/seuusuario" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/seunumerowhatsapp" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
   </footer>
+  <script>
+  const btn = document.getElementById('toggle-dark');
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  });
+</script>
 </body>
 </html>

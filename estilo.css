@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f8f6f6;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: linear-gradient(135deg, #f8f6f6 60%, #e6e6c3 100%);
   color: #131111;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 header {
@@ -10,6 +20,12 @@ header {
   color: rgb(5, 2, 2);
   padding: 15px 0;
   text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s;
 }
 
 nav {
@@ -23,29 +39,70 @@ nav a {
   color: rgb(5, 3, 3);
   text-decoration: none;
   font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+nav a:hover {
+  background: #dbe6a3;
+  color: #333;
+  text-decoration: underline;
 }
 
 main {
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
   text-align: center;
+  margin-top: 80px; /* espaço para o header fixo */
+  margin-bottom: 60px; /* espaço para o footer */
 }
 
 footer {
-  background-color: #6a7414;
-  color: rgb(8, 8, 8);
+  background-color: #e6e6c3;
+  color: #333;
   text-align: center;
   padding: 10px;
-  position: fixed;
-  bottom: 0;
   width: 100%;
+  position: static;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer .icones-sociais {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+footer a {
+  margin: 0;
+  font-size: 1.5em;
+  color: #6a7414;
+  transition: color 0.3s;
+}
+footer a:hover {
+  color: #333;
 }
 
 .foto {
   display: block;
   margin: 20px auto;
   width: 250px;
+  max-width: 90vw;
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(66, 19, 19, 0.3);
+}
+
+.foto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(66, 19, 19, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .formulario {
@@ -76,12 +133,65 @@ footer {
 }
 
 .formulario button {
-  background-color: #333;
+  background: linear-gradient(90deg, #6a7414 60%, #e6e6c3 100%);
   color: white;
   border: none;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.formulario button:hover {
+  background-color: #6a7414;
+  color: #fff;
+  transform: scale(1.05);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn-voltar {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #6a7414 60%, #e6e6c3 100%);
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-voltar:hover {
+  background: #6a7414;
+  transform: scale(1.05);
+}
+
+#toggle-dark {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2em;
+  background: #fff;
+  color: #6a7414;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  margin: 0;
+}
+
+#toggle-dark:hover {
+  background: #6a7414;
+  color: #fff;
+  transform: scale(1.1) rotate(-10deg);
 }
 
 @media (max-width: 600px) {
@@ -97,4 +207,65 @@ footer {
 #mensagem-status {
   margin-top: 10px;
   font-weight: bold;
+}
+
+body.scrolled header {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+section h2 {
+  color: #6a7414;
+  margin-bottom: 12px;
+  font-size: 2em;
+  text-shadow: 1px 1px 4px #e6e6c3;
+}
+
+/* Exemplo de ícones sociais no footer */
+body.dark-mode {
+  background: linear-gradient(135deg, #181a20 60%, #23272f 100%);
+  color: #e2e2e2;
+}
+
+body.dark-mode header {
+  background-color: #23272f;
+  color: #e2e2e2;
+}
+
+body.dark-mode footer {
+  background-color: #181a20;
+  color: #e2e2e2;
+}
+
+body.dark-mode main {
+  background: transparent;
+  color: #e2e2e2;
+}
+
+body.dark-mode .btn-voltar {
+  background: linear-gradient(90deg, #23272f 60%, #181a20 100%);
+  color: #fff;
+}
+
+body.dark-mode .formulario {
+  background-color: #23272f;
+  color: #e2e2e2;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .formulario input,
+body.dark-mode .formulario textarea {
+  background: #181a20;
+  color: #e2e2e2;
+  border: 1px solid #333;
+}
+
+body.dark-mode .formulario button {
+  background: linear-gradient(90deg, #6a7414 60%, #23272f 100%);
+  color: #fff;
+}
+
+body.dark-mode .icones-sociais a {
+  color: #e2e2e2;
+}
+body.dark-mode .icones-sociais a:hover {
+  color: #6a7414;
 }
