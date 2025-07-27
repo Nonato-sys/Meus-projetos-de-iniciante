@@ -73,3 +73,10 @@ footer {
   width: 100%;
   bottom: 0;
 }
+.foto {
+  display: block;
+  margin: 20px auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 3px solid #ccc;
+}
